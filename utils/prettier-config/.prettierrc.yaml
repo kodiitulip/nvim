@@ -1,0 +1,14 @@
+trailingComma: "es5"
+tabWidth: 4
+semi: false
+singleQuote: true
+arrowParens: "always"
+bracketSpacing: true
+htmlWhitespaceSensitivity: "css"
+jsxBracketSameLine: true
+jsxSingleQuote: true
+jsxSingleQuote: 80
+quoteProps: "as_needed"
+useTabs: true
+trailingComma: "all"
+

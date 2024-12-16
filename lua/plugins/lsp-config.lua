@@ -17,7 +17,7 @@ return {
 					"css_variables",
 					"cssmodules_ls",
 					"ast_grep",
-					"biome",
+					"eslint",
 				},
 			})
 		end,
@@ -32,18 +32,13 @@ return {
 				capabilities = capabilities,
 			})
 			lspconfig.ts_ls.setup({
-				on_attach = function(client)
-					client.server_capabilities.documentFormattingProvider = false
-				end,
 				capabilities = capabilities,
 			})
 			lspconfig.tailwindcss.setup({
-				---@diagnostic disable-next-line: unused-local
-				on_attach = function(client, bufnr)
+				on_attach = function(_, bufnr)
 					require("tailwindcss-colors").buf_attach(bufnr)
 				end,
 				capabilities = capabilities,
-
 			})
 			lspconfig.cssls.setup({
 				capabilities = capabilities,
@@ -57,7 +52,7 @@ return {
 			lspconfig.ast_grep.setup({
 				capabilities = capabilities,
 			})
-			lspconfig.biome.setup({
+			lspconfig.eslint.setup({
 				capabilities = capabilities,
 			})
 
