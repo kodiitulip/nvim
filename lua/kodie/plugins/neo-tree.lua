@@ -32,9 +32,9 @@ return {
       },
     })
 
-    local keymap = vim.keymap                                                                   -- for conciseness
-    keymap.set("n", "<leader>e", "<cmd>Neotree toggle<CR>", { desc = "Toggle file explorer" })  -- toggle
+    local keymap = vim.keymap                                                                    -- for conciseness
+    keymap.set("n", "<leader>e", "<cmd>Neotree toggle<CR>", { desc = "Toggle file explorer" })   -- toggle
     keymap.set("n", "<leader>ec", "<cmd>Neotree close<CR>", { desc = "Collapse file explorer" }) -- collapse
-    keymap.set("n", "<leader>er", "<cmd>Neotree current<CR>", { desc = "Refresh file explorer" }) -- refresh
+    keymap.set("n", "<leader>er", "<cmd>Neotree reveal<CR>", { desc = "Refresh file explorer" }) -- refresh
   end,
 }
