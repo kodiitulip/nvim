@@ -32,6 +32,9 @@ return {
 				capabilities = capabilities,
 			})
 			lspconfig.ts_ls.setup({
+				on_attach = function(client)
+					client.server_capabilities.documentFormattingProvider = false
+				end,
 				capabilities = capabilities,
 			})
 			lspconfig.tailwindcss.setup({
