@@ -1,2 +1,2 @@
-require("kodie.core.options")
-require("kodie.core.keymaps")
+require('kodie.core.options')
+require('kodie.core.keymaps')
