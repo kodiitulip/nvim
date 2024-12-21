@@ -1,5 +1,10 @@
 return {
   'folke/tokyonight.nvim',
+  name = 'tokyonight',
   priority = 1000,
-  config = function() vim.cmd('colorscheme tokyonight') end,
+  opts = { style = 'moon' },
+  config = function()
+    require('tokyonight').setup()
+    vim.cmd.colorscheme('tokyonight')
+  end,
 }

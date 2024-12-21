@@ -5,6 +5,7 @@ return {
     'hrsh7th/cmp-nvim-lsp',
     { 'antosha417/nvim-lsp-file-operations', config = true },
     { 'folke/neodev.nvim', opts = {} },
+    'themaxmarchuk/tailwindcss-colors.nvim',
   },
   config = function()
     local lspconfig = require('lspconfig')
@@ -85,6 +86,14 @@ return {
               completion = { callSnippet = 'Replace' },
             },
           },
+        })
+      end,
+      ['tailwindcss'] = function()
+        lspconfig['tailwindcss'].setup({
+          capabilities = capabilities,
+          on_attach = function(bufnr)
+            require('tailwindcss-colors').buf_attach(bufnr)
+          end,
         })
       end,
     })

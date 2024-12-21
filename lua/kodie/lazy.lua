@@ -27,7 +27,7 @@ require('lazy').setup({
   { import = 'kodie.plugins' },
   { import = 'kodie.plugins.lsp' },
 }, {
-  install = { colorscheme = { 'tokyonight', 'habamax' } },
+  install = { colorscheme = { 'tokyonight', 'habamax', 'catppucchin-mocha' } },
   checker = {
     enabled = true,
     notfy = false,
