@@ -91,7 +91,8 @@ return {
       ['tailwindcss'] = function()
         lspconfig['tailwindcss'].setup({
           capabilities = capabilities,
-          on_attach = function(bufnr)
+          ---@diagnostic disable-next-line: unused-local
+          on_attach = function(client, bufnr)
             require('tailwindcss-colors').buf_attach(bufnr)
           end,
         })

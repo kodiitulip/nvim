@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 return {
   'hrsh7th/nvim-cmp',
   event = 'InsertEnter',
@@ -38,7 +39,6 @@ return {
       sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
-      }, {
         { name = 'buffer' },
         { name = 'path' },
       }),
@@ -47,12 +47,10 @@ return {
         documentation = cmp.config.window.bordered(),
       },
       formatting = {
-        expandable_indicator = true,
         format = lspkind.cmp_format({
           maxwidth = 50,
           ellipsis_char = '...',
         }),
-        fields = { 'menu', 'kind', 'abbr' },
       },
     })
   end,
