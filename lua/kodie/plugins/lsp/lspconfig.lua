@@ -58,14 +58,19 @@ return {
     })
 
     local capabilities = cmp_nvim_lsp.default_capabilities()
+    capabilities.textDocument.foldingRange = {
+      dynamicRegistration = false,
+      lineFoldingOnly = true,
+    }
+
     mason_lspconfig.setup_handlers({
       function(server_name)
         lspconfig[server_name].setup({
           capabilities = capabilities,
         })
       end,
-      ['emmet_ls'] = function()
-        lspconfig['emmet_ls'].setup({
+      ['emmet_language_server'] = function()
+        lspconfig['emmet_language_server'].setup({
           capabilities = capabilities,
           filetypes = {
             'html',
@@ -91,10 +96,7 @@ return {
       ['tailwindcss'] = function()
         lspconfig['tailwindcss'].setup({
           capabilities = capabilities,
-          ---@diagnostic disable-next-line: unused-local
-          on_attach = function(client, bufnr)
-            require('tailwindcss-colors').buf_attach(bufnr)
-          end,
+          on_attach = function(_, bufnr) require('tailwindcss-colors').buf_attach(bufnr) end,
         })
       end,
     })

@@ -1,10 +1,12 @@
 ---@diagnostic disable: missing-fields
 return {
   'hrsh7th/nvim-cmp',
-  event = 'InsertEnter',
+  event = { 'InsertEnter', 'CmdlineEnter' },
   dependencies = {
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
+    'hrsh7th/cmp-cmdline',
+    'nvim-tree/nvim-web-devicons',
     {
       'L3MON4D3/LuaSnip',
       build = 'make install_jsregexp',
@@ -17,6 +19,7 @@ return {
     local cmp = require('cmp')
     local luasnip = require('luasnip')
     local lspkind = require('lspkind')
+    local devicons = require('nvim-web-devicons')
 
     require('luasnip.loaders.from_vscode').lazy_load()
 
@@ -47,11 +50,34 @@ return {
         documentation = cmp.config.window.bordered(),
       },
       formatting = {
-        format = lspkind.cmp_format({
-          maxwidth = 50,
-          ellipsis_char = '...',
-        }),
+        format = function(entry, vim_item)
+          if vim.tbl_contains({ 'path' }, entry.source.name) then
+            local icon, hl_group = devicons.get_icon(entry.completion_item().label)
+            if icon then
+              vim_item.kind = icon
+              vim_item.kind_hl_group = hl_group
+              return vim_item
+            end
+          end
+          return lspkind.cmp_format({ with_text = false })(entry, vim_item)
+        end,
       },
+    })
+
+    cmp.setup.cmdline({ '/', '?' }, {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = 'buffer' },
+      },
+    })
+
+    cmp.setup.cmdline(':', {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources({
+        { name = 'path' },
+      }, {
+        { name = 'cmdline' },
+      }),
     })
   end,
 }
