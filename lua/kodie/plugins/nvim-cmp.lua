@@ -40,11 +40,11 @@ return {
         ['<cr>'] = cmp.mapping.confirm({ select = true }),
       }),
       sources = cmp.config.sources({
-        { name = 'lazydev' },
+        { name = 'lazydev', group_index = 0 },
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
-        { name = 'buffer' },
         { name = 'path' },
+        { name = 'buffer' },
       }),
       window = {
         completion = cmp.config.window.bordered(),

@@ -4,8 +4,9 @@ return {
   dependencies = {
     'hrsh7th/cmp-nvim-lsp',
     { 'antosha417/nvim-lsp-file-operations', config = true },
-    { 'folke/lazydev.nvim', ft = 'lua', opts = {} },
     'themaxmarchuk/tailwindcss-colors.nvim',
+    'folke/lazydev.nvim',
+    'b0o/schemastore.nvim',
   },
   config = function()
     local lspconfig = require('lspconfig')
@@ -63,11 +64,14 @@ return {
       end,
     })
 
-    local capabilities = cmp_nvim_lsp.default_capabilities()
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities = vim.tbl_deep_extend('force', capabilities, cmp_nvim_lsp.default_capabilities())
     capabilities.textDocument.foldingRange = {
       dynamicRegistration = false,
       lineFoldingOnly = true,
     }
+
+    lspconfig.gdscript.setup({ capabilities = capabilities })
 
     mason_lspconfig.setup_handlers({
       function(server_name)
@@ -103,6 +107,29 @@ return {
         lspconfig['tailwindcss'].setup({
           capabilities = capabilities,
           on_attach = function(_, bufnr) require('tailwindcss-colors').buf_attach(bufnr) end,
+        })
+      end,
+      ['jsonls'] = function()
+        lspconfig['jsonls'].setup({
+          settings = {
+            json = {
+              schemas = require('schemastore').json.schemas(),
+              validate = { enable = true },
+            },
+          },
+        })
+      end,
+      ['yamlls'] = function()
+        lspconfig['yamlls'].setup({
+          settings = {
+            yaml = {
+              schemaStore = {
+                enable = false,
+                url = '',
+              },
+              schemas = require('schemastore').yaml.schemas(),
+            },
+          },
         })
       end,
     })

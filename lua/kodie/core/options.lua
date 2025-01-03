@@ -32,3 +32,8 @@ opt.clipboard:append('unnamedplus') -- use system clipboard
 -- split
 opt.splitright = true
 opt.splitbelow = true
+
+-- listen to godot host when on a godot project
+-- local projectfile = vim.fn.getcwd() .. '/project.godot'
+local pipepath = vim.fn.stdpath('cache') .. '/godot.pipe'
+if not vim.uv.fs_stat(pipepath) then vim.fn.serverstart(pipepath) end
