@@ -27,7 +27,7 @@ return {
             '--stdin-filepath',
             '$FILENAME',
             '--plugin',
-            'prettier-plugin-tailwindcss',
+            -- 'prettier-plugin-tailwindcss',
           }
         end,
       },
