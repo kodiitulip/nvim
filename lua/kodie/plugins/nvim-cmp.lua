@@ -43,8 +43,9 @@ return {
         { name = 'lazydev', group_index = 0 },
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
-        { name = 'path' },
+      }, {
         { name = 'buffer' },
+        { name = 'path' },
       }),
       window = {
         completion = cmp.config.window.bordered(),
@@ -53,7 +54,7 @@ return {
       formatting = {
         format = function(entry, vim_item)
           if vim.tbl_contains({ 'path' }, entry.source.name) then
-            local icon, hl_group = devicons.get_icon(entry.completion_item().label)
+            local icon, hl_group = devicons.get_icon(entry.completion_item.label)
             if icon then
               vim_item.kind = icon
               vim_item.kind_hl_group = hl_group
