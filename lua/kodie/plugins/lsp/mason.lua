@@ -13,6 +13,7 @@ return {
 
     mason_lsp.setup({
       ensure_installed = {
+        'ts_ls',
         'html',
         'cssls',
         'tailwindcss',
