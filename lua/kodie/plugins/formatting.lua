@@ -29,14 +29,9 @@ return {
     },
     default_format_opts = { lsp_format = 'fallback' },
     format_on_save = function(bufnr)
-      -- Disable autoformat on certain filetypes
       local ignore_filetypes = { 'sql', 'java', 'gdscript', 'gdshader' }
       if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then return end
-      return { timeout_ms = 2500, lsp_format = 'fallback' }
-    end,
-    format_after_save = function(bufnr)
-      local special = { 'gdscript', 'gdshader' }
-      if vim.tbl_contains(special, vim.bo[bufnr].filetype) then return { async = true, timeout_ms = 2500 } end
+      return { timeout_ms = 500, lsp_format = 'fallback' }
     end,
     formatters = {
       prettier = {
