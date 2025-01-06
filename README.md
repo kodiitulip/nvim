@@ -1,2 +1,3 @@
-# nvim
- My personal nvim plugins configurations
+# Neovim
+
+My personal neovim plugins configurations

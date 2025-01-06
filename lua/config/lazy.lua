@@ -20,19 +20,32 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   end
 end
 vim.opt.rtp:prepend(lazypath)
-vim.g.mapleader = ' '
-vim.g.maplocalleader = '\\'
 
 require('lazy').setup({
-  { import = 'kodie.plugins' },
-  { import = 'kodie.plugins.lsp' },
-}, {
-  install = { colorscheme = { 'tokyonight', 'habamax', 'catppucchin' } },
+  spec = {
+    { 'LazyVim/LazyVim', import = 'lazyvim.plugins', opts = {
+      colorscheme = { 'rose-pine' },
+    } },
+    { import = 'plugins' },
+  },
+  defaults = {
+    lazy = false,
+    version = false,
+  },
+  install = { colorscheme = { 'rose-pine' } },
   checker = {
     enabled = true,
-    notfy = false,
-  },
-  change_detection = {
     notify = false,
+  },
+  performance = {
+    rtp = {
+      disabled_plugins = {
+        'gzip',
+        'tarPlugin',
+        'tohtml',
+        'tutor',
+        'zipPlugin',
+      },
+    },
   },
 })

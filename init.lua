@@ -1,2 +1,1 @@
-require('kodie.core')
-require('kodie.lazy')
+require('config.lazy')
