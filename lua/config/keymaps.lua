@@ -1,9 +1,9 @@
-local keymap = vim.keymap
+local map = LazyVim.safe_keymap_set
 local opts = { noremap = true, silent = true }
 
 -- Increment/Decrement
-keymap.set('n', '+', '<C-a>', opts)
-keymap.set('n', '-', '<C-x>', opts)
+map('n', '+', '<C-a>', opts)
+map('n', '-', '<C-x>', opts)
 
 -- Exit insert with jk
-keymap.set('i', 'jk', '<c-\\><c-n>', { desc = 'Exit insert mode with jk' })
+map('i', 'jk', '<c-\\><c-n>', { desc = 'Exit insert mode with jk' })
