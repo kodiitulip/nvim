@@ -32,6 +32,9 @@ require('lazy').setup({
     lazy = false,
     version = false,
   },
+  rocks = {
+    herorocks = true,
+  },
   install = { colorscheme = { 'tokyonight' } },
   checker = {
     enabled = true,
