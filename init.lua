@@ -1,6 +1,2 @@
-require('config.lazy')
-vim.filetype.add({
-  extension = {
-    mcfunction = 'mcfunction',
-  },
-})
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
