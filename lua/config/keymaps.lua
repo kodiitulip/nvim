@@ -5,6 +5,8 @@
 local map = LazyVim.safe_keymap_set
 local opts = { noremap = true, silent = true }
 
+map('x', '<a-p>', [["_dP]], { desc = 'Paste over without yanking' })
+
 -- Increment/Decrement
 map('n', '+', '<C-a>', opts)
 map('n', '-', '<C-x>', opts)
