@@ -6,6 +6,9 @@ return {
       filetype = {
         tcss = { glyph = '󰙩', hl = 'MiniIconsYellow' },
       },
+      extension = {
+        tcss = { glyph = '󰙩', hl = 'MiniIconsYellow' },
+      },
     },
   },
 }
