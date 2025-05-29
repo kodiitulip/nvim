@@ -9,12 +9,27 @@
 
 -- , '*.mcmeta', '**/data/**/*.json', '**/assets/**/*.json'
 
-vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
+local create_autocmd = vim.api.nvim_create_autocmd
+
+create_autocmd({ 'BufNewFile', 'BufRead' }, {
   pattern = { '*.mcfunction' },
   command = 'set filetype=mcfunction',
 })
 
-vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
+create_autocmd({ 'BufNewFile', 'BufRead' }, {
   pattern = { '*.mcmeta' },
   command = 'set filetype=mcmeta',
+})
+
+-- initializing Godot server when on a godot project
+create_autocmd({ 'BufNewFile', 'BufRead' }, {
+  pattern = { '*.gd', '*.gdshader', 'project.godot' },
+  callback = function()
+    local res, err = pcall(vim.fn.serverstart, '127.0.0.1:6004')
+    if res then
+      vim.api.nvim_echo({ { 'Godot server initialized!' } }, true, {})
+    else
+      if err then vim.api.nvim_echo({ { 'Something went wrong...\n' }, { err } }, true, {}) end
+    end
+  end,
 })
