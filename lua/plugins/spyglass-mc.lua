@@ -10,6 +10,7 @@ return {
           filetypes = {
             'mcfunction',
             'json',
+            'mcmeta',
           },
         },
       },

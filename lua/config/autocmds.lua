@@ -13,3 +13,8 @@ vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
   pattern = { '*.mcfunction' },
   command = 'set filetype=mcfunction',
 })
+
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
+  pattern = { '*.mcmeta' },
+  command = 'set filetype=mcmeta',
+})
