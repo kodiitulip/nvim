@@ -22,6 +22,11 @@ create_autocmd({ 'BufNewFile', 'BufRead' }, {
   command = 'set filetype=mcmeta',
 })
 
+create_autocmd({ 'BufNewFile', 'BufRead' }, {
+  pattern = { '*.mcdoc' },
+  command = 'set filetype=mcdoc',
+})
+
 -- initializing Godot server when on a godot project
 create_autocmd({ 'BufNewFile', 'BufRead' }, {
   pattern = { '*.gd', '*.gdshader', 'project.godot' },

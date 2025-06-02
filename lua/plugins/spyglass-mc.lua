@@ -11,6 +11,7 @@ return {
             'mcfunction',
             'json',
             'mcmeta',
+            'mcdoc',
           },
           root_markers = {
             'pack.mcmeta',
