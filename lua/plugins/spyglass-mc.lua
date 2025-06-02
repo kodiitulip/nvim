@@ -12,6 +12,9 @@ return {
             'json',
             'mcmeta',
           },
+          root_markers = {
+            'pack.mcmeta',
+          },
         },
       },
     },
@@ -22,9 +25,11 @@ return {
     opts = {
       filetype = {
         mcfunction = { glyph = '󰍳', hl = 'MiniIconsGreen' },
+        mcmeta = { glyph = '󰍳', hl = 'MiniIconsGreen' },
       },
       extension = {
         mcfunction = { glyph = '󰍳', hl = 'MiniIconsGreen' },
+        mcmeta = { glyph = '󰍳', hl = 'MiniIconsGreen' },
       },
     },
   },
