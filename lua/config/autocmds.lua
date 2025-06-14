@@ -11,18 +11,8 @@ local create_autocmd = vim.api.nvim_create_autocmd
 
 -- Minecraft data/resource pack filetypes
 create_autocmd({ 'BufNewFile', 'BufRead' }, {
-  pattern = { '*.mcfunction' },
-  command = 'set filetype=mcfunction',
-})
-
-create_autocmd({ 'BufNewFile', 'BufRead' }, {
   pattern = { '*.mcmeta' },
   command = 'set filetype=json',
-})
-
-create_autocmd({ 'BufNewFile', 'BufRead' }, {
-  pattern = { '*.mcdoc' },
-  command = 'set filetype=mcdoc',
 })
 
 -- initializing Godot server when on a godot project
