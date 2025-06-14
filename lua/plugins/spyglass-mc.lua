@@ -1,16 +1,12 @@
 return {
   {
     'neovim/nvim-lspconfig',
-    ---@class PluginLspOpts
     opts = {
-      ---@diagnostic disable-next-line: undefined-doc-name
-      ---@type lspconfig.options
       servers = {
         spyglassmc_language_server = {
           filetypes = {
             'mcfunction',
             'json',
-            'mcmeta',
             'mcdoc',
           },
           root_markers = {
@@ -26,11 +22,12 @@ return {
     opts = {
       filetype = {
         mcfunction = { glyph = '󰍳', hl = 'MiniIconsGreen' },
-        mcmeta = { glyph = '󰍳', hl = 'MiniIconsGreen' },
+        mcdoc = { glyph = '󱔗', hl = 'MiniIconsBlue' },
       },
       extension = {
         mcfunction = { glyph = '󰍳', hl = 'MiniIconsGreen' },
-        mcmeta = { glyph = '󰍳', hl = 'MiniIconsGreen' },
+        mcmeta = { glyph = '󰍳', hl = 'MiniIconsLime' },
+        mcdoc = { glyph = '󱔗', hl = 'MiniIconsBlue' },
       },
     },
   },
