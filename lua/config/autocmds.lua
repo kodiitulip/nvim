@@ -7,8 +7,6 @@
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
--- , '*.mcmeta', '*/data/**/*.json', '*/assets/**/*.json'
-
 local create_autocmd = vim.api.nvim_create_autocmd
 
 -- Minecraft data/resource pack filetypes
@@ -19,7 +17,7 @@ create_autocmd({ 'BufNewFile', 'BufRead' }, {
 
 create_autocmd({ 'BufNewFile', 'BufRead' }, {
   pattern = { '*.mcmeta' },
-  command = 'set filetype=mcmeta',
+  command = 'set filetype=json',
 })
 
 create_autocmd({ 'BufNewFile', 'BufRead' }, {
@@ -33,9 +31,9 @@ create_autocmd({ 'BufNewFile', 'BufRead' }, {
   callback = function()
     local res, err = pcall(vim.fn.serverstart, '127.0.0.1:6004')
     if res then
-      vim.api.nvim_echo({ { 'Godot server initialized!' } }, true, {})
+      vim.notify('Godot server initialized!', vim.log.levels.INFO, {})
     else
-      if err then vim.api.nvim_echo({ { 'Something went wrong...\n' }, { err } }, true, {}) end
+      if err then vim.notify('Something went wrong: ' .. err, vim.log.levels.ERROR, {}) end
     end
   end,
 })
