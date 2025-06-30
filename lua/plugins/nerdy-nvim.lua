@@ -5,6 +5,7 @@ return {
   },
   cmd = 'Nerdy',
   keys = {
-    { '<leader>fN', '<cmd>Nerdy<cr>', mode = { 'n' }, desc = 'Nerdy Finder' },
+    { '<leader>sN', '<cmd>Nerdy<cr>', mode = { 'n' }, desc = 'Nerdy Finder' },
+    { 'sN', '<cmd>Nerdy<cr>', mode = { 'i' }, desc = 'Nerdy Finder' },
   },
 }
