@@ -2,6 +2,7 @@ vim.filetype.add({
   extension = {
     mcfunction = 'mcfunction',
     mcdoc = 'mcdoc',
+    bolt = 'bolt',
   },
 })
 
