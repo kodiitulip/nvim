@@ -1,0 +1,14 @@
+{
+  "TypedReactArrowFunctionComponent": {
+    "prefix": "trafc",
+    "body": [
+      "type Props = {",
+      "\t${3:prop}: ${2:type}",
+      "}",
+      "",
+      "export const ${1:Comp} = ({ ${3} }: Props) => {",
+      "\treturn <div>${1:Comp}</div>",
+      "}"
+    ]
+  }
+}

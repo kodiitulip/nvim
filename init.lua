@@ -23,3 +23,15 @@ dap.configurations.gdscript = {
     project = '${workspaceFolder}',
   },
 }
+
+local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
+---@diagnostic disable-next-line: inject-field
+parser_config.mcfunction = {
+  install_info = {
+    url = '~/Projects/TSGrammar/tree-sitter-mcfunction/',
+    files = { 'src/parser.c' },
+    generate_requires_npm = true,
+    requires_generate_from_grammar = true,
+  },
+  filetype = 'mcfunction',
+}
