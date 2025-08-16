@@ -1,4 +1,12 @@
 return {
+  -- {
+  --   'neovim/nvim-lspconfig',
+  --   opts = {
+  --     servers = {
+  --       spyglassmc_language_server = {},
+  --     },
+  --   },
+  -- },
   {
     'echasnovski/mini.icons',
     opts = {

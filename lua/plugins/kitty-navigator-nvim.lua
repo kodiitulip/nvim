@@ -1,9 +1,5 @@
 return {
   'MunsMan/kitty-navigator.nvim',
-  build = {
-    'cp navigate_kitty.py ~/.config/kitty',
-    'cp pass_keys.py ~/.config/kitty',
-  },
   keys = {
     { '<C-h>', function() require('kitty-navigator').navigateLeft() end, desc = 'Move left a Split', mode = { 'n' } },
     { '<C-j>', function() require('kitty-navigator').navigateDown() end, desc = 'Move down a Split', mode = { 'n' } },
