@@ -1,0 +1,14 @@
+{
+  "trafc": {
+    "prefix": "trafc",
+    "body": [
+      "type Props = {",
+      "\t${3}: ${2}",
+      "}",
+      "",
+      "export const ${1} = ({ ${3} }: Props) => {",
+      "\treturn <div>${1}</div>",
+      "}"
+    ]
+  }
+}
