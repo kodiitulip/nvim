@@ -1,1 +1,0 @@
-/home/kodie/Projects/TSGrammar/tree-sitter-mcfunction/queries/mcfunction/highlights.scm
