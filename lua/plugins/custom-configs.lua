@@ -52,4 +52,12 @@ return {
       },
     },
   },
+  {
+    "windwp/nvim-ts-autotag",
+    opts = {
+      aliases = {
+        ["svg"] = "xml",
+      },
+    },
+  },
 }
