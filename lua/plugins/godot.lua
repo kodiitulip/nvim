@@ -30,7 +30,6 @@ return {
     opts = {
       servers = {
         gdscript = {},
-        gdshader_lsp = {},
       },
     },
   },
